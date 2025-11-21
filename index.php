@@ -17,8 +17,8 @@
 
                 if(!empty($login) && !empty($pswd)){
                     require_once 'include/database.php'; // Connexion avec la base de données
-                    $date = date( format: 'Y-m-d'); //Afficher la date de création de utilisateur
-                    $sqlState = $pdo ->prepare(query: 'INSERT INTO utilisateur VALUES(null,?,?,?)');
+                    $date = date('Y-m-d'); //Afficher la date de création de utilisateur
+                    $sqlState = $pdo ->prepare('INSERT INTO utilisateur VALUES(null,?,?,?)');
                     $sqlState->execute([$login, $pswd, $date]);
                     // Redirection
                     header(header: 'location: connexion.php');

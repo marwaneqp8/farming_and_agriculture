@@ -14,11 +14,13 @@
             if (isset($_POST['ajouter'])) {
                 $libelle = $_POST['libelle'];
                 $description = $_POST['description'];
+                $date = date('Y-m-d');
+
 
                 if (!empty($libelle) && !empty($description)) {
                     require_once 'include/database.php';
-                    $sqlState = $pdo->prepare(query: 'INSERT INTO categorie( libelle, description) VALUES(?,?)');
-                    $sqlState ->execute([$libelle,$description]);
+                    $sqlState = $pdo->prepare(query: 'INSERT INTO categorie( libelle, description , date_creation) VALUES(?,?,?)');
+                    $sqlState ->execute([$libelle,$description,$date]);
                     ?>
                     <div class="alert alert-success" role="alert">
                         la catégorie <?php echo $libelle ?> est bien ajoutée.

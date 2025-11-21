@@ -20,7 +20,7 @@
                 $date = date('Y-m-d');
 
                 if (!empty($libelle) && !empty($prix) && !empty($discount) && !empty($categorie)) {
-                    $sqlState = $pdo->prepare('INSERT INTO produit VALUES(NULL,?, ?, ?, ?, ?)');
+                    $sqlState = $pdo->prepare('INSERT INTO produit VALUES(NULL,?,?,?,?,?)');
                     $inserted = $sqlState->execute([$libelle, $prix, $discount, $categorie, $date]);
                     if($inserted) {
                          ?>
@@ -31,7 +31,7 @@
                     }
                     else {
                         ?>
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-danger" role="alert">
                             Database Error
                         </div>
                         <?php
